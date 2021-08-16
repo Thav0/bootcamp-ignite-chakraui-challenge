@@ -1,0 +1,29 @@
+.sliderWrapper {
+  :global(".swiper-container") {
+    max-height: 450px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    background: #999;
+    opacity: 0.7;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #ffba08;
+    opacity: 1;
+  }
+
+  :global(.swiper-button-prev) {
+    color: #ffba08;
+  }
+
+  :global(.swiper-button-next) {
+    color: #ffba08;
+  }
+}
+
+.swiperContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
