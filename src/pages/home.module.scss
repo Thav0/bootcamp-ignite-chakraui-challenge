@@ -1,8 +1,4 @@
 .sliderWrapper {
-  :global(".swiper-container") {
-    max-height: 450px;
-  }
-
   :global(.swiper-pagination-bullet) {
     background: #999;
     opacity: 0.7;
@@ -20,10 +16,4 @@
   :global(.swiper-button-next) {
     color: #ffba08;
   }
-}
-
-.swiperContent {
-  position: absolute;
-  left: 0;
-  top: 0;
 }

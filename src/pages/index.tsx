@@ -1,4 +1,11 @@
-import { Flex, Box, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Heading,
+  Image,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,10 +14,16 @@ import { Header } from "../components/Header";
 import styles from "./home.module.scss";
 
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
+import { SwiperCustomItem } from "../components/SwiperCustomItem";
 
 SwiperCore.use([Navigation, Pagination]);
 
 const Home: NextPage = () => {
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+
   return (
     <>
       <Header />
@@ -22,6 +35,7 @@ const Home: NextPage = () => {
           justify="space-between"
           maxW={1160}
           mx="auto"
+          px={[6, 6, 10]}
           py="10"
         >
           <Box maxW="524px" align="flex-start">
@@ -39,14 +53,21 @@ const Home: NextPage = () => {
               Chegou a hora de tirar do papel a viagem que você sempre sonhou.{" "}
             </Text>
           </Box>
-          <Box>
-            <Image mb="-20" src="/images/icons/airplane.svg" alt="airplane" />
-          </Box>
+          {isWideVersion && (
+            <Box>
+              <Image mb="-20" src="/images/icons/airplane.svg" alt="airplane" />
+            </Box>
+          )}
         </Flex>
       </Flex>
 
       <Box w="100%" maxW={1160} mx="auto" pb="10">
-        <Flex py="20" justify="space-between">
+        <Flex
+          py="20"
+          justify={["space-between"]}
+          flexWrap="wrap"
+          px={["10", "20"]}
+        >
           <CategoryIcon
             title="vida noturna"
             icon="/images/icons/cocktail.svg"
@@ -79,16 +100,32 @@ const Home: NextPage = () => {
             navigation
           >
             <SwiperSlide>
-              <Image src="/images/beach.jpg" alt="1" />
+              <SwiperCustomItem
+                bgImage="/images/beach.jpg"
+                title="Europa"
+                subTitle="Continente mais velho"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src="/images/europe.jpg" alt="2" />
+              <SwiperCustomItem
+                bgImage="/images/europe.jpg"
+                title="Europa"
+                subTitle="Continente mais velho"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src="/images/islands.jpg" alt="3" />
+              <SwiperCustomItem
+                bgImage="/images/islands.jpg"
+                title="Europa"
+                subTitle="Continente mais velho"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src="/images/maldivas.jpg" alt="4" />
+              <SwiperCustomItem
+                bgImage="/images/maldivas.jpg"
+                title="Europa"
+                subTitle="Continente mais velho"
+              />
             </SwiperSlide>
           </Swiper>
         </Box>

@@ -21,19 +21,35 @@ export default function Country() {
     <>
       <Header />
 
+      {/* width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      color: #fff;
+      align-self: flex-end;
+      margin-bottom: 20px; */}
+
       <Flex
         flex="1"
         bgImage="/images/europe.jpg"
-        h="400"
+        h={[200, 300, 400]}
         backgroundSize={"cover"}
         backgroundPosition={"center center"}
-        className={styles.bannerContainer}
+        align={["center", "center", "flex-end"]}
+        justify={["center", "center", "flex-start"]}
       >
-        <Heading as="h3">Europa</Heading>
+        <Heading as="h3" color="white" fontWeight="600" padding={[0, 0, 10]}>
+          Europa
+        </Heading>
       </Flex>
 
-      <Box width="100%" py="20" maxW="1160px" mx="auto">
-        <Flex direction="row">
+      <Box
+        width="100%"
+        py={[10, 10, 20]}
+        px={[10, 10, 20]}
+        maxW="1160px"
+        mx="auto"
+      >
+        <Flex direction={["column", "column", "row"]}>
           <Box>
             <Container textAlign="justify">
               A Europa é, por convenção, um dos seis continentes do mundo.
@@ -60,7 +76,14 @@ export default function Country() {
             Cidades +100
           </Heading>
 
-          <Grid templateColumns="repeat(4, 1fr)" gap="4">
+          <Grid
+            templateColumns={[
+              "repeat(1, 1fr)",
+              "repeat(2, 1fr)",
+              "repeat(4, 1fr)",
+            ]}
+            gap="4"
+          >
             <GridItem>
               <City
                 cityName="Reino Unido"
